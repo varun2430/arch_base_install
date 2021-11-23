@@ -1,18 +1,14 @@
 
 echo "Script started: ";
 
-read -p "Automatically select the fastest mirrors? [y/n]" answer
-if [[ $answer = y ]] ; then
-  echo "Selecting the fastest mirrors"
-  reflector -c India --sort rate --save /etc/pacman.d/mirrorlist
-fi
-
-pacman -Syy;
 pacman -Sy archlinux-keyring;
 
 loadkeys us;
 timedatectl set-ntp true;
 
+pacman -Syy;
+
+clear;
 lsblk;
 
 echo "Enter the drive: ";
@@ -34,7 +30,7 @@ mount $partition /mnt;
 mkdir -p /mnt/boot/efi;
 mount $efipartition /mnt/boot/efi;
 
-pacstrap /mnt base linux linux-firmware nvim amd-ucode;
+pacstrap /mnt base linux linux-firmware neovim amd-ucode;
 
 genfstab -U /mnt >> /mnt/etc/fstab;
 
@@ -46,6 +42,8 @@ arch-chroot /mnt ./arch_install2.sh
 exit 
 
 #part2
+
+clear;
 
 echo "Username: ";
 read username;
