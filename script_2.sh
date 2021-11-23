@@ -1,3 +1,4 @@
+
 clear;
 
 echo "Username: ";
@@ -22,13 +23,16 @@ clear;
 passwd;
 
 clear;
-pacman -S grub efibootmgr networkmanager mtools dosfstools base-devel;
+sudo pacman -S --needed grub efibootmgr networkmanager wpa_supplicant dialog mtools \
+	dosfstools base-devel linux-headers bluez bluez-utils alsa-utils pulseaudio \
+	pulseaudio-bluetooth git reflector xdg-utils xdg-user-dirs;
 
 clear;
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB;
 grub-mkconfig -o /boot/grub/grub.cfg;
 
 systemctl enable NetworkManager;
+systemctl enable bluetooth;
 
 EDITOR=nvim visudo;
 
