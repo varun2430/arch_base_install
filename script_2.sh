@@ -23,7 +23,7 @@ clear;
 passwd;
 
 clear;
-sudo pacman -S --needed grub efibootmgr networkmanager wpa_supplicant dialog mtools \
+pacman -S --needed grub efibootmgr networkmanager wpa_supplicant dialog mtools \
 	dosfstools base-devel linux-headers bluez bluez-utils alsa-utils pulseaudio \
 	pulseaudio-bluetooth git reflector xdg-utils xdg-user-dirs;
 
