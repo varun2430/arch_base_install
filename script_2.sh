@@ -27,8 +27,12 @@ sudo pacman -S --needed grub efibootmgr networkmanager wpa_supplicant dialog mto
 	dosfstools base-devel linux-headers bluez bluez-utils alsa-utils pulseaudio \
 	pulseaudio-bluetooth git reflector xdg-utils xdg-user-dirs;
 
+echo "load-module module-switch-on-connect" >> /etc/pulse/default.pa;
+
 clear;
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB;
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=3/g' /etc/default/grub;
+sed -i 's/loglevel=3 quiet/loglevel=3 quiet acpi_backlight=vendor/g' /etc/default/grub;
 grub-mkconfig -o /boot/grub/grub.cfg;
 
 systemctl enable NetworkManager;
