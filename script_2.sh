@@ -41,7 +41,7 @@ systemctl enable bluetooth;
 EDITOR=nvim visudo;
 
 clear;
-useradd -m -G wheel $username;
+useradd -m -G  wheel,floppy,audio,video,optical,kvm $username;
 passwd $username;
 
 exit
