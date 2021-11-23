@@ -35,7 +35,9 @@ pacstrap /mnt base linux linux-firmware neovim amd-ucode;
 genfstab -U /mnt >> /mnt/etc/fstab;
 
 cp arch_base_install/script_2.sh /mnt/script_2.sh;
+cp arch_base_install/script_3.sh /mnt/script_3.sh;
 chmod +x /mnt/script_2.sh;
+chmod +x /mnt/script_3.sh;
 arch-chroot /mnt ./script_2.sh;
 
 exit 
