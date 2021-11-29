@@ -30,7 +30,7 @@ mount $partition /mnt;
 mkdir -p /mnt/boot/efi;
 mount $efipartition /mnt/boot/efi;
 
-pacstrap /mnt base linux linux-firmware neovim amd-ucode;
+pacstrap /mnt base linux linux-firmware sof-firmware neovim amd-ucode;
 
 genfstab -U /mnt >> /mnt/etc/fstab;
 
