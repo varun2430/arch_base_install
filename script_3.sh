@@ -8,7 +8,7 @@ sed -i 's/loglevel=3 quiet/loglevel=3 quiet acpi_backlight=vendor/g' /etc/defaul
 grub-mkconfig -o /boot/grub/grub.cfg;
 
 pacman -S xf86-video-amdgpu;
-pacman -S xorg pavucontrol;
+pacman -S xorg pavucontrol blueman;
 
 echo 'Section "InputClass"
     Identifier "DELL0A79:00 06CB:CE26 Touchpad"
